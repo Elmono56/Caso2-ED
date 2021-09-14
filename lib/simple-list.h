@@ -74,6 +74,15 @@ struct simplelist {
         return result;
     }
 
+    void listPlayers(){
+        nodo* position = start;
+        while (position!=nullptr) {
+            cout << position->.printPlayers()  << endl;
+            recorrido = position->next;
+        }
+
+    }
+
 };
 
 
