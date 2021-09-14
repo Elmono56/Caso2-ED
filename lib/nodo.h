@@ -7,9 +7,8 @@ struct player {
 }
 
 struct nodo {
-    jugador data;
+    player data;
     nodo* next = nullptr;
 };
-
 
 #endif
