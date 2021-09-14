@@ -6,4 +6,10 @@ struct player {
     string name;
 }
 
+struct nodo {
+    jugador data;
+    nodo* next = nullptr;
+};
+
+
 #endif
