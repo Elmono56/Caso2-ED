@@ -1,8 +1,11 @@
 #ifndef _SIMPLELIST_
 #define _SIMPLELIST_
 
-#include <stdlib.h>
+#include <iostream>
 #include "nodo.h"
+#include <string>
+
+using namespace std;
 
 #define POSITION_BEGINNING 0
 #define POSITION_END 99999999
