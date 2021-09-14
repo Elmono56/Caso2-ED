@@ -6,14 +6,14 @@
 struct player {
     int number;
     string name;
-}
+};
 
 struct nodo {
     player data;
     nodo* next = nullptr;
 
     string printPlayers(){
-        return (data.numer << "    " << data.name);
+        return (data.numer + "    "  + data.name);
     }
 };
 
