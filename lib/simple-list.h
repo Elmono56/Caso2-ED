@@ -29,10 +29,12 @@ struct simplelist {
         return result!=0;
     }
 */
+/*
     void insertPlayer(int pNumber, string pNombre, int pPosition){
         player newplayer = {pNumber, pNombre};
         insert(newplayer, pPosition);
     }
+*/
 
 
 
@@ -40,20 +42,31 @@ struct simplelist {
 
 
 
-
-
+/*
     int insert(player pPlayer, int pPosition) {
         nodo* newvalue = (nodo*)malloc(sizeof(struct nodo));
         newvalue->data = pPlayer;
         int result = 0;
 
+
         if (size==0) {
-            start = &newvalue->data;
-            end = &newvalue->data;  
+
+            start = *newvalue->data;
+            end = *newvalue->data;  
+
         } else if (pPosition==0) {
-            newvalue->data = *start;
+            newvalue->next = start;
             start = &newvalue->data;
+
         } else {
+            return -1;
+        }
+        
+        size++;
+        return result;
+    }
+*/
+            /*
             int actualPosition = 1;
             nodo* pointerToPosition = nullptr;
             nodo* pointerBehind = nullptr;
@@ -76,11 +89,9 @@ struct simplelist {
             pointerBehind = newvalue;
             newvalue->next = pointerToPosition;
             result = actualPosition;
-        }
-
-        size++;
-        return result;
-    }
+            */
+        
+    
 
 
 
