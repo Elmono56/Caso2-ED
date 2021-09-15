@@ -4,7 +4,7 @@
 #include <iostream>
 #include "nodo.h"
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 #define POSITION_BEGINNING 0
@@ -22,53 +22,58 @@ struct simplelist {
     int getQuantity() {
         return size;
     }
-
+/*
     bool addPlayer(int pNumber, string pNombre) {
-        player playern = {pNumber, pNombre};
-        nodo nodon = {playern};
-        int result = insert(nodon, POSITION_END);
+        player newplayer = {pNumber, pNombre};
+        int result = insert(newplayer, POSITION_END);
         return result!=0;
     }
-
+*/
     void insertPlayer(int pNumber, string pNombre, int pPosition){
-        player playern = {pNumber, pNombre};
-        nodo nodon = {playern};
-        int result = insert(nodon, pPosition);
-        return result==size;
+        player newplayer = {pNumber, pNombre};
+        insert(newplayer, pPosition);
     }
 
-    int insert(player pNodo, int pPosition) {
+
+
+
+
+
+
+
+
+    int insert(player pPlayer, int pPosition) {
         nodo* newvalue = (nodo*)malloc(sizeof(struct nodo));
-        newvalue->data = pNodo;
+        newvalue->data = pPlayer;
         int result = 0;
 
         if (size==0) {
-            start = newvalue;
-            end = newvalue;  
+            start = &newvalue->data;
+            end = &newvalue->data;  
         } else if (pPosition==0) {
-            newvalue->next = start;
-            start = newvalue;
+            newvalue->data = *start;
+            start = &newvalue->data;
         } else {
             int actualPosition = 1;
             nodo* pointerToPosition = nullptr;
             nodo* pointerBehind = nullptr;
 
             if (pPosition>=size) {
-                pointerBehind = end;
-                end = newvalue;
+                pointerBehind->data = end;
+                end = &newvalue->data;
                 actualPosition = size;
             } else {
-                pointerToPosition = start->next;
-                pointerBehind = start;
+                pointerToPosition->data = start;
+                pointerBehind->data = start;
             }
 
             while (actualPosition<pPosition && pointerToPosition!=nullptr) {
                 pointerBehind = pointerToPosition;
-                pointerToPosition = pointerToPosition->next;
+                pointerToPosition = pointerToPosition;
                 actualPosition++;
             }
 
-            pointerBehind->next = newvalue;
+            pointerBehind = newvalue;
             newvalue->next = pointerToPosition;
             result = actualPosition;
         }
@@ -77,15 +82,22 @@ struct simplelist {
         return result;
     }
 
+
+
+
+
+
+
+/*
     void listPlayers(){
         nodo* position = start;
         while (position!=nullptr) {
-            cout << position->.printPlayers()  << endl;
-            recorrido = position->next;
+            cout << position-> printPlayers()  << endl;
+            position = position->next;
         }
 
     }
-
+*/
 };
 
 

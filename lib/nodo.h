@@ -1,7 +1,10 @@
 #ifndef _NODO_
 #define _NODO_ 1
 
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 struct player {
     int number;
@@ -13,7 +16,7 @@ struct nodo {
     nodo* next = nullptr;
 
     string printPlayers(){
-        return (data.numer + "    "  + data.name);
+        return (data.number + "    "  + data.name);
     }
 };
 
