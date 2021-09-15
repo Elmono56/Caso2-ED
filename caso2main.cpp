@@ -29,7 +29,7 @@ int main() {
     //cout << milista.isEmpty() << " " << milista.getQuantity() << endl;
 
     int listtosort[5]={20, 12, 10, 15, 2};
-    int[]* pointerlts = *listtosort;
+    int[]* pointerlts = &listtosort;
 
     sortBySelectionSort(pointerlts);
 

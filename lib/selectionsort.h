@@ -2,6 +2,10 @@
 #define _SELECTIONSORT_
 
 
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 
 void sortBySelectionSort(int *pValoresAOrdenar[]){
@@ -15,14 +19,14 @@ void sortBySelectionSort(int *pValoresAOrdenar[]){
                 minimun=change;
             }
         }
-        float temp = pValoresAOrdenar[minimun];
+        int temp = *pValoresAOrdenar[minimun];
         pValoresAOrdenar[minimun]=pValoresAOrdenar[search];
-        pValoresAOrdenar[search]=temp;
+        pValoresAOrdenar[search]=&temp;
         
     }
 
     for (int printi=0;printi<size;printi++){
-        cout<<pValoresAOrdenar[printi]<< " , ";
+        cout<<pValoresAOrdenar[printi]<< " ";
     }
     cout<<endl;
 

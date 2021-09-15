@@ -1,10 +1,10 @@
 #ifndef _SIMPLELIST_
 #define _SIMPLELIST_
 
-#include <iostream>
 #include "nodo.h"
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 #define POSITION_BEGINNING 0
