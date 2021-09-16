@@ -22,27 +22,20 @@ int main() {
 */
     //cout<<endl;
 
-    cout<<milista.getQuantity()<<endl;
-    cout<<milista.isEmpty()<<endl;
-
-
     player p1 = {20,"Pablo"};
-    
-    milista.insert(&p1,0);
-
-    cout<<milista.getQuantity()<<endl;
-    cout<<milista.isEmpty()<<endl;
-
     player p2 = {10,"Carlos"};
+    player p3 = {5,"Jorge"};
+    player p4 = {65,"Andres"};
+    player p5 = {15,"Nicho"};
+    player p6 = {17,"Miguel"};
 
+    milista.insert(&p1,0);
     milista.insert(&p2,0);
+    milista.insert(&p3,0);
+    milista.insert(&p4,10);
+    milista.insert(&p5,4);
+    milista.insert(&p6,17);
 
-    /*milista.insertPlayer(10,"Carlos",0);
-    milista.insertPlayer(5,"Jorge",0);
-    milista.insertPlayer(65,"Andres",10);
-    milista.insertPlayer(15,"Nicho",4);
-    milista.insertPlayer(17,"Miguel",9);
-*/
     //milista.listPlayers();
 
     cout<<milista.getQuantity()<<endl;

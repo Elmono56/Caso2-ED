@@ -33,36 +33,21 @@ struct simplelist {
 
     int insert(struct player* pPlayer, int pPosition) {
 
-        //cout<<pPlayer.name<<endl;
-        //cout<<sizeof(pPlayer)<<endl;
-        //cout<<sizeof(struct nodo)<<endl;
-        cout<<"Antes malloc"<<endl;
         void* p = malloc(sizeof(struct nodo));
-        cout<<"Luego malloc"<<endl;
         struct nodo* newvalue = (struct nodo*) p;
-        cout<<"Hizo el casteo"<<endl;
-        
-        //cout<<newvalue<<endl;
-        //cout<<pPlayer->name<<endl;
-        newvalue->data =(struct player) *pPlayer; //AQUI SE CAE
-        cout<<"Hola"<<endl;
-        //newvalue->data = pPlayer;
-        //cout<<newvalue->data.number<<" "<<endl;
-        cout<<newvalue->data.name<<endl; 
+
+        newvalue->data = pPlayer;
         int result = 0;
-        cout<<"Entra a insert"<<endl;
         
         if (size==0) {
-            cout<<"Entra a size 0"<<endl;
             start = newvalue;
             end = newvalue;
 
         } else if (pPosition==0) {
-            cout<<"Entra a position 0"<<endl;
             newvalue->next = start;
             start = newvalue;
+        
         } else {
-            cout<<"Entra al fondo"<<endl;
             int actualPosition = 1;
             nodo* pointerToPosition = nullptr;
             nodo* pointerBehind = nullptr;
@@ -86,8 +71,8 @@ struct simplelist {
             newvalue->next = pointerToPosition;
             result = actualPosition;
         }
-        cout<<newvalue->data.name<< " " <<newvalue->data.number<<" Ha sido añadido"<<endl;
         size++;
+        //cout<<newvalue->data->name<< " " <<newvalue->data->number<<" Ha sido agregado a la lista en la posicion "<<result<< endl;
         return result;
     }
 
