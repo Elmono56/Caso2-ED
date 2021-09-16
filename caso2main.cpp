@@ -28,7 +28,7 @@ int main() {
 
     //cout << milista.isEmpty() << " " << milista.getQuantity() << endl;
 
-    float listtosort[5]={20.2,12.5, 10.7, 15.3, 2.8};
+    float listtosort[5]={78.2,58.3,12.4,10.2,3.5};
     float* pointerlts = listtosort;
 
     SelectionSort(pointerlts, 5);
