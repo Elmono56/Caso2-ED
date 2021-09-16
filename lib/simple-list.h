@@ -43,15 +43,15 @@ struct simplelist {
 
 
 /*
-    int insert(player pPlayer, int pPosition) {
+    int insert(struct player pPlayer, int pPosition) {
         nodo* newvalue = (nodo*)malloc(sizeof(struct nodo));
         newvalue->data = pPlayer;
         int result = 0;
 
 
         if (size==0) {
-
-            start = *newvalue->data;
+                    //(*newvalue).data
+            start = newvalue->data;
             end = *newvalue->data;  
 
         } else if (pPosition==0) {
