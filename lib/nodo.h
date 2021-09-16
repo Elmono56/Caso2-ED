@@ -16,7 +16,7 @@ struct nodo {
     nodo* next = nullptr;
 
     string printPlayers(){
-        return (data.number + "    "  + data.name);
+        return (this->data.number + "    "  + this->data.name);
     }
 };
 
