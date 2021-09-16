@@ -12,12 +12,13 @@ struct player {
 };
 
 struct nodo {
-    player data;
-    nodo* next = nullptr;
-
-    string printPlayers(){
-        return (this->data.number + "    "  + this->data.name);
+    struct player data;
+    struct nodo* next = nullptr;
+    /*
+    void printPlayers(){
+        cout<<this->data.number <<"     " << this->data.name<<endl;
     }
+    */
 };
 
 #endif

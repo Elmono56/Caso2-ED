@@ -12,21 +12,17 @@ using namespace std;
 
 struct simplelist {
     int size = 0;
-    nodo* start = nullptr;
-    nodo* end = nullptr;
+    struct nodo* start = nullptr;
+    struct nodo* end = nullptr;
+
+    bool isEmpty() {
+        return size == 0 ;
+    }
 
     int getQuantity() {
         return size;
     }
 
-    bool isEmpty(){
-        if (size==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 /*
     bool addPlayer(int pNumber, string pNombre) {
         player newplayer = {pNumber, pNombre};
@@ -35,39 +31,38 @@ struct simplelist {
     }
 */
 
-    void insertPlayer(int pNumber, string pNombre, int pPosition){
-        player newplayer = {pNumber, pNombre};
-        insert(newplayer, pPosition);
-    }
+    int insert(struct player* pPlayer, int pPosition) {
 
-
-    int insert(struct player pPlayer, int pPosition) {
-        cout<<"Entra"<<endl;
-        nodo* newvalue = (nodo*)malloc(sizeof(struct nodo));
-        cout<<newvalue<<endl;
-        cout<<pPlayer.name<<endl;
-    
-        newvalue->data = pPlayer;
-
-        int result = 0;
-
-        cout <<newvalue->data.name<<"Si"<<endl;
-    
-        cout<<size<<endl;
-        if (size==0) {
-                    //(*newvalue).data
-            start = newvalue;
-            end = newvalue; 
-            cout<<"Entra primera vez"<<endl;
-        }
+        //cout<<pPlayer.name<<endl;
+        //cout<<sizeof(pPlayer)<<endl;
+        //cout<<sizeof(struct nodo)<<endl;
+        cout<<"Antes malloc"<<endl;
+        void* p = malloc(sizeof(struct nodo));
+        cout<<"Luego malloc"<<endl;
+        struct nodo* newvalue = (struct nodo*) p;
+        cout<<"Hizo el casteo"<<endl;
         
-         else if (pPosition==0) {
-            newvalue->next = start; //next = *nodo y start = *nodo
+        //cout<<newvalue<<endl;
+        //cout<<pPlayer->name<<endl;
+        newvalue->data =(struct player) *pPlayer; //AQUI SE CAE
+        cout<<"Hola"<<endl;
+        //newvalue->data = pPlayer;
+        //cout<<newvalue->data.number<<" "<<endl;
+        cout<<newvalue->data.name<<endl; 
+        int result = 0;
+        cout<<"Entra a insert"<<endl;
+        
+        if (size==0) {
+            cout<<"Entra a size 0"<<endl;
             start = newvalue;
-            cout<<"Entra otras veces a la primera posición"<<endl;
-        }
-        else{
-            cout<<"Entra al fondo"<<endl; 
+            end = newvalue;
+
+        } else if (pPosition==0) {
+            cout<<"Entra a position 0"<<endl;
+            newvalue->next = start;
+            start = newvalue;
+        } else {
+            cout<<"Entra al fondo"<<endl;
             int actualPosition = 1;
             nodo* pointerToPosition = nullptr;
             nodo* pointerBehind = nullptr;
@@ -77,33 +72,23 @@ struct simplelist {
                 end = newvalue;
                 actualPosition = size;
             } else {
-                pointerToPosition = start;
-                pointerBehind= start;
+                pointerToPosition = start->next;
+                pointerBehind = start;
             }
 
             while (actualPosition<pPosition && pointerToPosition!=nullptr) {
                 pointerBehind = pointerToPosition;
-                pointerToPosition = pointerToPosition;
+                pointerToPosition = pointerToPosition->next;
                 actualPosition++;
             }
 
-            pointerBehind = newvalue;
+            pointerBehind->next = newvalue;
             newvalue->next = pointerToPosition;
             result = actualPosition;
         }
-        newvalue=nullptr;
+        cout<<newvalue->data.name<< " " <<newvalue->data.number<<" Ha sido añadido"<<endl;
         size++;
         return result;
-    }       
-    
-
-    void listPlayers(){
-        nodo* position = start;
-        while (position!=nullptr) {
-            cout << position-> printPlayers() << endl;
-            position = position->next;
-        }
-
     }
 
 };
