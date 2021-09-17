@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include "lib/simple-list.h"
@@ -13,6 +14,10 @@ int main() {
     float listtosort[5]={78.2,58.3,12.4,10.2,3.5};
     float* pointerlts = listtosort;
     SelectionSort(pointerlts, 5);
+
+    float listtosort2[6]={13.4,5.7,100.4,656.2,23.6,2.2};
+    float* pointer2ts =listtosort2;
+    SelectionSort(pointer2ts,6);
 
     cout<<endl;
 
@@ -47,5 +52,5 @@ int main() {
     cout<<endl;
     cout<<milista.getQuantity()<<endl;
     cout<<milista.isEmpty()<<endl;
-    
+
 }

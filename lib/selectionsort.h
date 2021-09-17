@@ -1,3 +1,4 @@
+
 #ifndef _SELECTIONSORT_
 #define _SELECTIONSORT_
 
@@ -28,5 +29,4 @@ void SelectionSort(float* pValoresAOrdenar, int pSize){
     }
     cout<<endl;
 }
-
 #endif

@@ -1,3 +1,4 @@
+
 #ifndef _NODO_
 #define _NODO_ 1
 
@@ -16,7 +17,7 @@ struct player {
 };
 
 struct nodo {
-    
+
     struct player* data;
     struct nodo* next = nullptr;
     
